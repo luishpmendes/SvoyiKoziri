@@ -1,0 +1,309 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<class-diagram version="1.2.2" icons="true" automaticImage="PNG" always-add-relationships="false" generalizations="true" 
+  realizations="true" associations="true" dependencies="false" nesting-relationships="true" router="FAN">  
+  <class id="1" language="java" name="svoyikoziri.engine.exception.TakeAllCardsAsFirstPlayException" project="MC322T2" 
+    file="/MC322T2/src/svoyikoziri/engine/exception/TakeAllCardsAsFirstPlayException.java" binary="false" 
+    corner="BOTTOM_RIGHT">    
+    <position height="79" width="234" x="537" y="37"/>    
+    <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
+      sort-features="false" accessors="true" visibility="true">      
+      <attributes public="true" package="true" protected="true" private="true" static="true"/>      
+      <operations public="true" package="true" protected="true" private="true" static="true"/>    
+    </display>  
+  </class>  
+  <enumeration id="2" language="java" name="svoyikoziri.deck.Suit" project="MC322T2" 
+    file="/MC322T2/src/svoyikoziri/deck/Suit.java" binary="false" corner="BOTTOM_RIGHT">    
+    <position height="169" width="120" x="565" y="1413"/>    
+    <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
+      sort-features="false" accessors="true" visibility="true">      
+      <attributes public="true" package="true" protected="true" private="true" static="true"/>      
+      <operations public="true" package="true" protected="true" private="true" static="true"/>    
+    </display>  
+  </enumeration>  
+  <class id="3" language="java" name="svoyikoziri.player.Player" project="MC322T2" 
+    file="/MC322T2/src/svoyikoziri/player/Player.java" binary="false" corner="BOTTOM_RIGHT">    
+    <position height="133" width="182" x="605" y="1031"/>    
+    <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
+      sort-features="false" accessors="true" visibility="true">      
+      <attributes public="true" package="true" protected="true" private="true" static="true"/>      
+      <operations public="true" package="true" protected="true" private="true" static="true"/>    
+    </display>  
+  </class>  
+  <enumeration id="4" language="java" name="svoyikoziri.engine.PlayType" project="MC322T2" 
+    file="/MC322T2/src/svoyikoziri/engine/PlayType.java" binary="false" corner="BOTTOM_RIGHT">    
+    <position height="115" width="159" x="1058" y="1204"/>    
+    <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
+      sort-features="false" accessors="true" visibility="true">      
+      <attributes public="true" package="true" protected="true" private="true" static="true"/>      
+      <operations public="true" package="true" protected="true" private="true" static="true"/>    
+    </display>  
+  </enumeration>  
+  <class id="5" language="java" name="svoyikoziri.player.InvalidPlayer" project="MC322T2" 
+    file="/MC322T2/src/svoyikoziri/player/InvalidPlayer.java" binary="false" corner="BOTTOM_RIGHT">    
+    <position height="151" width="199" x="345" y="1204"/>    
+    <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
+      sort-features="false" accessors="true" visibility="true">      
+      <attributes public="true" package="true" protected="true" private="true" static="true"/>      
+      <operations public="true" package="true" protected="true" private="true" static="true"/>    
+    </display>  
+  </class>  
+  <class id="6" language="java" name="svoyikoziri.engine.exception.PlayAWorseCardException" project="MC322T2" 
+    file="/MC322T2/src/svoyikoziri/engine/exception/PlayAWorseCardException.java" binary="false" corner="BOTTOM_RIGHT">    
+    <position height="79" width="254" x="2122" y="37"/>    
+    <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
+      sort-features="false" accessors="true" visibility="true">      
+      <attributes public="true" package="true" protected="true" private="true" static="true"/>      
+      <operations public="true" package="true" protected="true" private="true" static="true"/>    
+    </display>  
+  </class>  
+  <class id="7" language="java" name="svoyikoziri.engine.exception.PlayANullCardException" project="MC322T2" 
+    file="/MC322T2/src/svoyikoziri/engine/exception/PlayANullCardException.java" binary="false" corner="BOTTOM_RIGHT">    
+    <position height="79" width="187" x="41" y="37"/>    
+    <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
+      sort-features="false" accessors="true" visibility="true">      
+      <attributes public="true" package="true" protected="true" private="true" static="true"/>      
+      <operations public="true" package="true" protected="true" private="true" static="true"/>    
+    </display>  
+  </class>  
+  <class id="8" language="java" name="svoyikoziri.engine.exception.NullPlayException" project="MC322T2" 
+    file="/MC322T2/src/svoyikoziri/engine/exception/NullPlayException.java" binary="false" corner="BOTTOM_RIGHT">    
+    <position height="79" width="156" x="1019" y="37"/>    
+    <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
+      sort-features="false" accessors="true" visibility="true">      
+      <attributes public="true" package="true" protected="true" private="true" static="true"/>      
+      <operations public="true" package="true" protected="true" private="true" static="true"/>    
+    </display>  
+  </class>  
+  <class id="9" language="java" name="svoyikoziri.engine.Engine" project="MC322T2" 
+    file="/MC322T2/src/svoyikoziri/engine/Engine.java" binary="false" corner="BOTTOM_RIGHT">    
+    <position height="457" width="329" x="1215" y="37"/>    
+    <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
+      sort-features="false" accessors="true" visibility="true">      
+      <attributes public="true" package="true" protected="true" private="true" static="true"/>      
+      <operations public="true" package="true" protected="true" private="true" static="true"/>    
+    </display>  
+  </class>  
+  <class id="10" language="java" name="svoyikoziri.engine.DefaultEngine" project="MC322T2" 
+    file="/MC322T2/src/svoyikoziri/engine/DefaultEngine.java" binary="false" corner="BOTTOM_RIGHT">    
+    <position height="457" width="295" x="1215" y="534"/>    
+    <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
+      sort-features="false" accessors="true" visibility="true">      
+      <attributes public="true" package="true" protected="true" private="true" static="true"/>      
+      <operations public="true" package="true" protected="true" private="true" static="true"/>    
+    </display>  
+  </class>  
+  <class id="11" language="java" name="svoyikoziri.player.DeterministicDummyPlayer" project="MC322T2" 
+    file="/MC322T2/src/svoyikoziri/player/DeterministicDummyPlayer.java" binary="false" corner="BOTTOM_RIGHT">    
+    <position height="133" width="183" x="605" y="1204"/>    
+    <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
+      sort-features="false" accessors="true" visibility="true">      
+      <attributes public="true" package="true" protected="true" private="true" static="true"/>      
+      <operations public="true" package="true" protected="true" private="true" static="true"/>    
+    </display>  
+  </class>  
+  <class id="12" language="java" name="svoyikoziri.engine.exception.MaxPlayTimeExceededException" project="MC322T2" 
+    file="/MC322T2/src/svoyikoziri/engine/exception/MaxPlayTimeExceededException.java" binary="false" 
+    corner="BOTTOM_RIGHT">    
+    <position height="79" width="229" x="268" y="37"/>    
+    <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
+      sort-features="false" accessors="true" visibility="true">      
+      <attributes public="true" package="true" protected="true" private="true" static="true"/>      
+      <operations public="true" package="true" protected="true" private="true" static="true"/>    
+    </display>  
+  </class>  
+  <class id="13" language="java" name="svoyikoziri.engine.Play" project="MC322T2" 
+    file="/MC322T2/src/svoyikoziri/engine/Play.java" binary="false" corner="BOTTOM_RIGHT">    
+    <position height="133" width="124" x="1070" y="1031"/>    
+    <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
+      sort-features="false" accessors="true" visibility="true">      
+      <attributes public="true" package="true" protected="true" private="true" static="true"/>      
+      <operations public="true" package="true" protected="true" private="true" static="true"/>    
+    </display>  
+  </class>  
+  <class id="14" language="java" name="svoyikoziri.player.StochasticDummyPlayer" project="MC322T2" 
+    file="/MC322T2/src/svoyikoziri/player/StochasticDummyPlayer.java" binary="false" corner="BOTTOM_RIGHT">    
+    <position height="169" width="190" x="828" y="1204"/>    
+    <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
+      sort-features="false" accessors="true" visibility="true">      
+      <attributes public="true" package="true" protected="true" private="true" static="true"/>      
+      <operations public="true" package="true" protected="true" private="true" static="true"/>    
+    </display>  
+  </class>  
+  <class id="15" language="java" name="svoyikoziri.deck.Card" project="MC322T2" 
+    file="/MC322T2/src/svoyikoziri/deck/Card.java" binary="false" corner="BOTTOM_RIGHT">    
+    <position height="169" width="136" x="1257" y="1204"/>    
+    <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
+      sort-features="false" accessors="true" visibility="true">      
+      <attributes public="true" package="true" protected="true" private="true" static="true"/>      
+      <operations public="true" package="true" protected="true" private="true" static="true"/>    
+    </display>  
+  </class>  
+  <enumeration id="16" language="java" name="svoyikoziri.deck.Color" project="MC322T2" 
+    file="/MC322T2/src/svoyikoziri/deck/Color.java" binary="false" corner="BOTTOM_RIGHT">    
+    <position height="115" width="120" x="565" y="1766"/>    
+    <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
+      sort-features="false" accessors="true" visibility="true">      
+      <attributes public="true" package="true" protected="true" private="true" static="true"/>      
+      <operations public="true" package="true" protected="true" private="true" static="true"/>    
+    </display>  
+  </enumeration>  
+  <class id="17" language="java" name="svoyikoziri.engine.exception.InvalidPlayException" project="MC322T2" 
+    file="/MC322T2/src/svoyikoziri/engine/exception/InvalidPlayException.java" binary="false" corner="BOTTOM_RIGHT">    
+    <position height="79" width="168" x="811" y="37"/>    
+    <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
+      sort-features="false" accessors="true" visibility="true">      
+      <attributes public="true" package="true" protected="true" private="true" static="true"/>      
+      <operations public="true" package="true" protected="true" private="true" static="true"/>    
+    </display>  
+  </class>  
+  <enumeration id="18" language="java" name="svoyikoziri.deck.Rank" project="MC322T2" 
+    file="/MC322T2/src/svoyikoziri/deck/Rank.java" binary="false" corner="BOTTOM_RIGHT">    
+    <position height="313" width="120" x="1257" y="1413"/>    
+    <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
+      sort-features="false" accessors="true" visibility="true">      
+      <attributes public="true" package="true" protected="true" private="true" static="true"/>      
+      <operations public="true" package="true" protected="true" private="true" static="true"/>    
+    </display>  
+  </enumeration>  
+  <class id="19" language="java" name="svoyikoziri.engine.exception.SameTrumpColorsException" project="MC322T2" 
+    file="/MC322T2/src/svoyikoziri/engine/exception/SameTrumpColorsException.java" binary="false" corner="BOTTOM_RIGHT">    
+    <position height="79" width="210" x="1584" y="37"/>    
+    <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
+      sort-features="false" accessors="true" visibility="true">      
+      <attributes public="true" package="true" protected="true" private="true" static="true"/>      
+      <operations public="true" package="true" protected="true" private="true" static="true"/>    
+    </display>  
+  </class>  
+  <class id="20" language="java" name="svoyikoziri.engine.exception.PlayACardNotInHandException" project="MC322T2" 
+    file="/MC322T2/src/svoyikoziri/engine/exception/PlayACardNotInHandException.java" binary="false" 
+    corner="BOTTOM_RIGHT">    
+    <position height="79" width="248" x="1834" y="37"/>    
+    <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
+      sort-features="false" accessors="true" visibility="true">      
+      <attributes public="true" package="true" protected="true" private="true" static="true"/>      
+      <operations public="true" package="true" protected="true" private="true" static="true"/>    
+    </display>  
+  </class>  
+  <generalization id="21">    
+    <end type="SOURCE" refId="10"/>    
+    <end type="TARGET" refId="9"/>  
+  </generalization>  
+  <association id="22">    
+    <end type="SOURCE" refId="10" navigable="false">      
+      <attribute id="23" name="player1"/>      
+      <multiplicity id="24" minimum="0" maximum="1"/>    
+    </end>    
+    <end type="TARGET" refId="3" navigable="true"/>    
+    <display labels="true" multiplicity="true"/>  
+  </association>  
+  <association id="25">    
+    <bendpoint x="1266" y="1031"/>    
+    <end type="SOURCE" refId="10" navigable="false">      
+      <attribute id="26" name="cardsOnTable"/>      
+      <multiplicity id="27" minimum="0" maximum="2147483647"/>    
+    </end>    
+    <end type="TARGET" refId="15" navigable="true"/>    
+    <display labels="true" multiplicity="true"/>  
+  </association>  
+  <association id="28">    
+    <bendpoint x="574" y="1204"/>    
+    <end type="SOURCE" refId="3" navigable="false">      
+      <attribute id="29" name="trump"/>      
+      <multiplicity id="30" minimum="0" maximum="1"/>    
+    </end>    
+    <end type="TARGET" refId="2" navigable="true"/>    
+    <display labels="true" multiplicity="true"/>  
+  </association>  
+  <association id="31">    
+    <end type="SOURCE" refId="10" navigable="false">      
+      <attribute id="32" name="player2"/>      
+      <multiplicity id="33" minimum="0" maximum="1"/>    
+    </end>    
+    <end type="TARGET" refId="3" navigable="true"/>    
+    <display labels="true" multiplicity="true"/>  
+  </association>  
+  <association id="34">    
+    <end type="SOURCE" refId="13" navigable="false">      
+      <attribute id="35" name="card"/>      
+      <multiplicity id="36" minimum="0" maximum="1"/>    
+    </end>    
+    <end type="TARGET" refId="15" navigable="true"/>    
+    <display labels="true" multiplicity="true"/>  
+  </association>  
+  <association id="37">    
+    <end type="SOURCE" refId="2" navigable="false">      
+      <attribute id="38" name="color"/>      
+      <multiplicity id="39" minimum="0" maximum="1"/>    
+    </end>    
+    <end type="TARGET" refId="16" navigable="true"/>    
+    <display labels="true" multiplicity="true"/>  
+  </association>  
+  <association id="40">    
+    <end type="SOURCE" refId="15" navigable="false">      
+      <attribute id="41" name="suit"/>      
+      <multiplicity id="42" minimum="0" maximum="1"/>    
+    </end>    
+    <end type="TARGET" refId="2" navigable="true"/>    
+    <display labels="true" multiplicity="true"/>  
+  </association>  
+  <association id="43">    
+    <end type="SOURCE" refId="13" navigable="false">      
+      <attribute id="44" name="type"/>      
+      <multiplicity id="45" minimum="0" maximum="1"/>    
+    </end>    
+    <end type="TARGET" refId="4" navigable="true"/>    
+    <display labels="true" multiplicity="true"/>  
+  </association>  
+  <generalization id="46">    
+    <end type="SOURCE" refId="14"/>    
+    <end type="TARGET" refId="3"/>  
+  </generalization>  
+  <association id="47">    
+    <end type="SOURCE" refId="10" navigable="false">      
+      <attribute id="48" name="plays"/>      
+      <multiplicity id="49" minimum="0" maximum="2147483647"/>    
+    </end>    
+    <end type="TARGET" refId="13" navigable="true"/>    
+    <display labels="true" multiplicity="true"/>  
+  </association>  
+  <generalization id="50">    
+    <end type="SOURCE" refId="11"/>    
+    <end type="TARGET" refId="3"/>  
+  </generalization>  
+  <association id="51">    
+    <bendpoint x="1245" y="1031"/>    
+    <end type="SOURCE" refId="10" navigable="false">      
+      <attribute id="52" name="hand2"/>      
+      <multiplicity id="53" minimum="0" maximum="2147483647"/>    
+    </end>    
+    <end type="TARGET" refId="15" navigable="true"/>    
+    <display labels="true" multiplicity="true"/>  
+  </association>  
+  <association id="54">    
+    <end type="SOURCE" refId="15" navigable="false">      
+      <attribute id="55" name="rank"/>      
+      <multiplicity id="56" minimum="0" maximum="1"/>    
+    </end>    
+    <end type="TARGET" refId="18" navigable="true"/>    
+    <display labels="true" multiplicity="true"/>  
+  </association>  
+  <generalization id="57">    
+    <end type="SOURCE" refId="5"/>    
+    <end type="TARGET" refId="3"/>  
+  </generalization>  
+  <association id="58">    
+    <bendpoint x="1224" y="1031"/>    
+    <end type="SOURCE" refId="10" navigable="false">      
+      <attribute id="59" name="hand1"/>      
+      <multiplicity id="60" minimum="0" maximum="2147483647"/>    
+    </end>    
+    <end type="TARGET" refId="15" navigable="true"/>    
+    <display labels="true" multiplicity="true"/>  
+  </association>  
+  <classifier-display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
+    sort-features="false" accessors="true" visibility="true">    
+    <attributes public="true" package="true" protected="true" private="true" static="true"/>    
+    <operations public="true" package="true" protected="true" private="true" static="true"/>  
+  </classifier-display>  
+  <association-display labels="true" multiplicity="true"/>
+</class-diagram>
