@@ -12,14 +12,14 @@ import svoyikoziri.engine.PlayType;
 /**
  * A classe <code>DeterministicDummyPlayer</code> representa um jogador 
  * "ingênuo" deterministico.
- * 
+ *
  * @author Luis H. P. Mendes
  */
 public class DeterministicDummyPlayer extends Player {
     /**
      * Inicializa um objeto de <code>DeterministicDummyPlayer</code> 
      * recém-criado.
-     * 
+     *
      * @param trump O naipe trunfo do jogador.
      */
     public DeterministicDummyPlayer(Suit trump) {
@@ -28,7 +28,7 @@ public class DeterministicDummyPlayer extends Player {
 
     /**
      * Recupera o naipe trunfo do jogador.
-     * 
+     *
      * @return O naipe trunfo do jogador.
      */
     @Override
@@ -38,9 +38,9 @@ public class DeterministicDummyPlayer extends Player {
 
     /**
      * Indica se algum outro objeto é igual a este objeto.
-     * 
+     *
      * @param obj O objeto de referência com o qual comparar.
-     * 
+     *
      * @return <code>true</code> se este objeto é o mesmo que o parâmetro obj, 
      *         <code>false</code> caso contrário.
      */
@@ -62,11 +62,11 @@ public class DeterministicDummyPlayer extends Player {
 
     /**
      * Retorna a jogada do jogador para a rodada atual.
-     * 
+     *
      * @param firstToPlay Um valor booleano que indica se o jogador iniciou a 
      *                    rodada atual.
      * @param engine      O motor do jogo.
-     * 
+     *
      * @return Uma jogada.
      */
     @Override

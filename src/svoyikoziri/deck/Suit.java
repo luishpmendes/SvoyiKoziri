@@ -1,7 +1,7 @@
 package svoyikoziri.deck;
 
 /**
- * A enumeração <code>Suit</code> representa os naipes das carta de baralho.
+ * A enumeração <code>Suit</code> representa os naipes das cartas de baralho.
  * 
  * @author Luis H. P. Mendes
  */
@@ -30,7 +30,7 @@ public enum Suit {
 
     /**
      * Inicializa um <code>Suit</code> recém-criado.
-     * 
+     *
      * @param color A cor do naipe.
      */
     private Suit (Color color) {
@@ -39,7 +39,7 @@ public enum Suit {
 
     /**
      * Recupera a cor deste naipe.
-     * 
+     *
      * @return A cor deste naipe.
      */
     public Color getColor() {

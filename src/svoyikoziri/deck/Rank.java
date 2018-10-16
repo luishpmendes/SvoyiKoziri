@@ -1,8 +1,8 @@
 package svoyikoziri.deck;
 
 /**
- * A enumeração <code>Rank</code> representa os ranks das carta de baralho.
- * 
+ * A enumeração <code>Rank</code> representa os ranks das cartas de baralho.
+ *
  * @author Luis H. P. Mendes
  */
 public enum Rank {

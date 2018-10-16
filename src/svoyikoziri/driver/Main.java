@@ -8,12 +8,14 @@ import svoyikoziri.deck.Rank;
 import svoyikoziri.deck.Suit;
 import svoyikoziri.engine.DefaultEngine;
 import svoyikoziri.engine.Engine;
+import svoyikoziri.engine.Play;
 import svoyikoziri.engine.exception.InvalidPlayException;
 import svoyikoziri.engine.exception.MaxPlayTimeExceededException;
 import svoyikoziri.engine.exception.NullPlayException;
 import svoyikoziri.engine.exception.PlayACardNotInHandException;
 import svoyikoziri.engine.exception.PlayANullCardException;
 import svoyikoziri.engine.exception.PlayAWorseCardException;
+import svoyikoziri.engine.exception.SameTrumpColorsException;
 import svoyikoziri.engine.exception.TakeAllCardsAsFirstPlayException;
 import svoyikoziri.player.DeterministicDummyPlayer;
 import svoyikoziri.player.InvalidPlayer;
@@ -21,13 +23,13 @@ import svoyikoziri.player.Player;
 
 /**
  * A classe <code>Main</code> representa uma aplicação em Java.
- * 
+ *
  * @author Luis H. P. Mendes
  */
 public class Main {
     /**
      * O método main é o ponto de partida para esta aplicação Java.
-     * 
+     *
      * @param args argumentos passados ao método main.
      */
     public static void main(String[] args) {
@@ -79,12 +81,12 @@ public class Main {
             engine = new DefaultEngine(player1, player2, deck, 
                     Engine.DEFAULT_MAX_ROUNDS, Engine.DEFAULT_MAX_PLAY_TIME, 
                     false);
-        } catch (RuntimeException re) {
-            System.out.println(re.getMessage());
+        } catch (SameTrumpColorsException stce) {
+            System.err.println(stce.getMessage());
         }
 
         // Tenta jogar uma partida com um jogador que faz jogadas nulas
-        player1 = new InvalidPlayer(Suit.HEARTS, NullPlayException.class);
+        player1 = new InvalidPlayer(Suit.HEARTS, new NullPlayException(true));
         player2 = new DeterministicDummyPlayer(Suit.CLOVERS);
 
         try {
@@ -93,12 +95,13 @@ public class Main {
                     true);
             
             engine.playMatch();
-        } catch (RuntimeException re) {
-            System.out.println(re.getMessage());
+        } catch (NullPlayException npe) {
+            System.err.println(npe.getMessage());
         }
 
         // Tenta jogar uma partida com um jogador que joga cartas nulas
-        player1 = new InvalidPlayer(Suit.HEARTS, PlayANullCardException.class);
+        player1 = new InvalidPlayer(Suit.HEARTS, 
+                new PlayANullCardException(true));
         player2 = new DeterministicDummyPlayer(Suit.PIKES);
 
         try {
@@ -107,14 +110,14 @@ public class Main {
                     false);
             
             engine.playMatch();
-        } catch (RuntimeException re) {
-            System.out.println(re.getMessage());
+        } catch (PlayANullCardException pance) {
+            System.err.println(pance.getMessage());
         }
 
         // Tenta jogar uma partida com um jogador que joga cartas que não 
         // estão em sua mão
         player1 = new InvalidPlayer(Suit.TILES, 
-                PlayACardNotInHandException.class);
+        		new PlayACardNotInHandException(true));
         player2 = new DeterministicDummyPlayer(Suit.CLOVERS);
 
         try {
@@ -123,14 +126,14 @@ public class Main {
                     true);
             
             engine.playMatch();
-        } catch (RuntimeException re) {
-            System.out.println(re.getMessage());
+        } catch (PlayACardNotInHandException pacnihe) {
+            System.err.println(pacnihe.getMessage());
         }
 
         // Tenta jogar uma partida com um jogador que tenta pegar todas as 
         // cartas da mesa sendo o primeiro a jogar na rodada
         player1 = new InvalidPlayer(Suit.TILES, 
-                TakeAllCardsAsFirstPlayException.class);
+        		new TakeAllCardsAsFirstPlayException(true));
         player2 = new DeterministicDummyPlayer(Suit.PIKES);
 
         try {
@@ -139,15 +142,15 @@ public class Main {
                     false);
             
             engine.playMatch();
-        } catch (RuntimeException re) {
-            System.out.println(re.getMessage());
+        } catch (TakeAllCardsAsFirstPlayException tacafpe) {
+            System.err.println(tacafpe.getMessage());
         }
 
         // Tenta jogar uma partida com um jogador que jogar uma carta que é 
         // pior do que a carta no topo da pilha de cartas da mesa
         player1 = new DeterministicDummyPlayer(Suit.CLOVERS);
         player2 = new InvalidPlayer(Suit.HEARTS, 
-                PlayAWorseCardException.class);
+        		new PlayAWorseCardException(false));
 
         try {
             engine = new DefaultEngine(player1, player2, deck, 
@@ -155,13 +158,14 @@ public class Main {
                     true);
             
             engine.playMatch();
-        } catch (RuntimeException re) {
-            System.out.println(re.getMessage());
+        } catch (PlayAWorseCardException pawce) {
+            System.err.println(pawce.getMessage());
         }
 
         // Tenta jogar uma partida com um jogador que lança exceção ao tentar 
         // fazer sua jogada
-        player1 = new InvalidPlayer(Suit.CLOVERS, Exception.class);
+        player1 = new InvalidPlayer(Suit.CLOVERS, 
+        		new InvalidPlayException(true));
         player2 = new DeterministicDummyPlayer(Suit.TILES);
 
         try {
@@ -170,14 +174,14 @@ public class Main {
                     false);
             
             engine.playMatch();
-        } catch (RuntimeException re) {
-            System.out.println(re.getMessage());
+        } catch (InvalidPlayException ipe) {
+            System.err.println(ipe.getMessage());
         }
 
         // Tenta jogar uma partida com um jogador que demora mais do que o 
         // permitido para fazer a sua jogada
         player1 = new InvalidPlayer(Suit.PIKES, 
-                MaxPlayTimeExceededException.class);
+        		new MaxPlayTimeExceededException(true));
         player2 = new DeterministicDummyPlayer(Suit.HEARTS);
 
         try {
@@ -186,50 +190,156 @@ public class Main {
                     true);
             
             engine.playMatch();
-        } catch (RuntimeException re) {
-            System.out.println(re.getMessage());
+        } catch (MaxPlayTimeExceededException mptee) {
+            System.err.println(mptee.getMessage());
         }
-        
-        // Tenta jogar uma partida com um jogador que faz jogadas inválidas
-        player1 = new InvalidPlayer(Suit.PIKES, InvalidPlayException.class);
+
+        // Joga uma partida entre dois jogadores "ingênuos" determinísticos
+        player1 = new DeterministicDummyPlayer(Suit.PIKES);
         player2 = new DeterministicDummyPlayer(Suit.TILES);
 
+        engine = new DefaultEngine(player1, player2, deck, 
+                Engine.DEFAULT_MAX_ROUNDS, Engine.DEFAULT_MAX_PLAY_TIME, 
+                false);
+
+        engine.playMatch();
+
+        System.out.println("Naipe trunfo do Jogador1: " 
+                + engine.getPlayer1Trump() + ".");
+        System.out.println("Naipe trunfo do Jogador2: " 
+                + engine.getPlayer2Trump() + ".");
+        if (engine.getUnmodifiableHandOfPlayer(player1).isEmpty()) {
+            System.out.println("O Jogador1 nao tem nenhuma carta na mao.");
+            try {
+                engine.getUnmodifiableHandOfPlayer(player1).add(
+                        new Card(Suit.HEARTS, Rank.TWO));
+            } catch (UnsupportedOperationException upe) {
+                System.err.println("Nao foi possivel modificar as cartas na mao do Jogador1.");
+            }
+        } else {
+            System.out.println("Cartas na mao do Jogador1:");
+            for (Card card : engine.getUnmodifiableHandOfPlayer(player1)) {
+                System.out.println(card);
+            }
+            try {
+                engine.getUnmodifiableHandOfPlayer(player1).clear();
+            } catch (UnsupportedOperationException upe) {
+                System.err.println("Nao foi possivel modificar as cartas na mao do Jogador1.");
+            }
+        }
+        if (engine.getUnmodifiableHandOfPlayer(player2).isEmpty()) {
+            System.out.println("O Jogador2 nao tem nenhuma carta na mao.");
+            try {
+                engine.getUnmodifiableHandOfPlayer(player2).add(
+                        new Card(Suit.HEARTS, Rank.TWO));
+            } catch (UnsupportedOperationException upe) {
+                System.err.println("Nao foi possivel modificar as cartas na mao do Jogador2.");
+            }
+        } else {
+            System.out.println("Cartas na mao do Jogador2:");
+            for (Card card : engine.getUnmodifiableHandOfPlayer(player2)) {
+                System.out.println(card);
+            }
+            try {
+                engine.getUnmodifiableHandOfPlayer(player2).clear();
+            } catch (UnsupportedOperationException upe) {
+                System.err.println("Nao foi possivel modificar as cartas na mao do Jogador2.");
+            }
+        }
+        if (engine.getCardsOnTable().isEmpty()) {
+            System.out.println("A pilha de cartas da mesa nao tem nenhuma carta.");
+        } else {
+            System.out.println("Cartas na pilha de cartas da mesa:");
+            for (Card card : engine.getCardsOnTable()) {
+                System.out.println(card);
+            }
+        }
+        System.out.println("Numero maximo de rodadas da partida: " 
+                + engine.getMaxRounds() + ".");
+        System.out.println("Numero da rodada atual da partida: " 
+                + engine.getCurrentRound() + ".");
+        System.out.println("Lista de jogadas:");
+        for (Play play : engine.getUnmodifiablePlays()) {
+            System.out.println(play);
+        }
         try {
-            engine = new DefaultEngine(player1, player2, deck, 
-                    Engine.DEFAULT_MAX_ROUNDS, Engine.DEFAULT_MAX_PLAY_TIME, 
-                    false);
-            
-            engine.playMatch();
-        } catch (RuntimeException re) {
-            System.out.println(re.getMessage());
+            engine.getUnmodifiablePlays().clear();
+        } catch (UnsupportedOperationException upe) {
+            System.err.println("Nao foi possivel modificar a lista de jogadas.");
         }
 
         // Joga uma partida entre dois jogadores "ingênuos" determinísticos
         player1 = new DeterministicDummyPlayer(Suit.HEARTS);
         player2 = new DeterministicDummyPlayer(Suit.CLOVERS);
 
-        try {
-            engine = new DefaultEngine(player1, player2, deck, 
-                    Engine.DEFAULT_MAX_ROUNDS, Engine.DEFAULT_MAX_PLAY_TIME, 
-                    true);
-            
-            engine.playMatch();
-        } catch (RuntimeException re) {
-            System.out.println(re.getMessage());
-        }
-        
-        // Joga uma partida entre dois jogadores "ingênuos" determinísticos
-        player1 = new DeterministicDummyPlayer(Suit.PIKES);
-        player2 = new DeterministicDummyPlayer(Suit.TILES);
+        engine = new DefaultEngine(player1, player2, deck, 
+                Engine.DEFAULT_MAX_ROUNDS, Engine.DEFAULT_MAX_PLAY_TIME, 
+                true);
 
+        engine.playMatch();
+
+        System.out.println("Naipe trunfo do Jogador1: " 
+                + engine.getPlayer1Trump() + ".");
+        System.out.println("Naipe trunfo do Jogador2: " 
+                + engine.getPlayer2Trump() + ".");
+        if (engine.getUnmodifiableHandOfPlayer(player1).isEmpty()) {
+            System.out.println("O Jogador1 nao tem nenhuma carta na mao.");
+            try {
+                engine.getUnmodifiableHandOfPlayer(player1).add(
+                        new Card(Suit.HEARTS, Rank.TWO));
+            } catch (UnsupportedOperationException upe) {
+                System.err.println("Nao foi possivel modificar as cartas na mao do Jogador1.");
+            }
+        } else {
+            System.out.println("Cartas na mao do Jogador1:");
+            for (Card card : engine.getUnmodifiableHandOfPlayer(player1)) {
+                System.out.println(card);
+            }
+            try {
+                engine.getUnmodifiableHandOfPlayer(player1).clear();
+            } catch (UnsupportedOperationException upe) {
+                System.err.println("Nao foi possivel modificar as cartas na mao do Jogador1.");
+            }
+        }
+        if (engine.getUnmodifiableHandOfPlayer(player2).isEmpty()) {
+            System.out.println("O Jogador2 nao tem nenhuma carta na mao.");
+            try {
+                engine.getUnmodifiableHandOfPlayer(player2).add(
+                        new Card(Suit.HEARTS, Rank.TWO));
+            } catch (UnsupportedOperationException upe) {
+                System.err.println("Nao foi possivel modificar as cartas na mao do Jogador2.");
+            }
+        } else {
+            System.out.println("Cartas na mao do Jogador2:");
+            for (Card card : engine.getUnmodifiableHandOfPlayer(player2)) {
+                System.out.println(card);
+            }
+            try {
+                engine.getUnmodifiableHandOfPlayer(player2).clear();
+            } catch (UnsupportedOperationException upe) {
+                System.err.println("Nao foi possivel modificar as cartas na mao do Jogador2.");
+            }
+        }
+        if (engine.getCardsOnTable().isEmpty()) {
+            System.out.println("A pilha de cartas da mesa nao tem nenhuma carta.");
+        } else {
+            System.out.println("Cartas na pilha de cartas da mesa:");
+            for (Card card : engine.getCardsOnTable()) {
+                System.out.println(card);
+            }
+        }
+        System.out.println("Numero maximo de rodadas da partida: " 
+                + engine.getMaxRounds() + ".");
+        System.out.println("Numero da rodada atual da partida: " 
+                + engine.getCurrentRound() + ".");
+        System.out.println("Lista de jogadas:");
+        for (Play play : engine.getUnmodifiablePlays()) {
+            System.out.println(play);
+        }
         try {
-            engine = new DefaultEngine(player1, player2, deck, 
-                    Engine.DEFAULT_MAX_ROUNDS, Engine.DEFAULT_MAX_PLAY_TIME, 
-                    false);
-            
-            engine.playMatch();
-        } catch (RuntimeException re) {
-            System.out.println(re.getMessage());
+            engine.getUnmodifiablePlays().clear();
+        } catch (UnsupportedOperationException upe) {
+            System.err.println("Nao foi possivel modificar a lista de jogadas.");
         }
     }
 }

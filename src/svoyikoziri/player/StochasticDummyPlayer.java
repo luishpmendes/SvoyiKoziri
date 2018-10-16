@@ -13,7 +13,7 @@ import svoyikoziri.engine.PlayType;
 /**
  * A classe <code>StochasticDummyPlayer</code> representa um jogador 
  * "ingênuo" aleatório.
- * 
+ *
  * @author Luis H. P. Mendes
  */
 public class StochasticDummyPlayer extends Player {
@@ -24,7 +24,7 @@ public class StochasticDummyPlayer extends Player {
 
     /**
      * Inicializa um objeto de <code>StochasticDummyPlayer</code> recém-criado.
-     * 
+     *
      * @param trump O naipe trunfo do jogador.
      * @param seed  A semente do gerador de números aleatórios.
      */
@@ -35,7 +35,7 @@ public class StochasticDummyPlayer extends Player {
 
     /**
      * Inicializa um objeto de <code>StochasticDummyPlayer</code> recém-criado.
-     * 
+     *
      * @param trump O naipe trunfo do jogador.
      */
     public StochasticDummyPlayer(Suit trump) {
@@ -45,7 +45,7 @@ public class StochasticDummyPlayer extends Player {
 
     /**
      * Recupera o naipe trunfo do jogador.
-     * 
+     *
      * @return O naipe trunfo do jogador.
      */
     @Override
@@ -55,9 +55,9 @@ public class StochasticDummyPlayer extends Player {
 
     /**
      * Indica se algum outro objeto é igual a este objeto.
-     * 
+     *
      * @param obj O objeto de referência com o qual comparar.
-     * 
+     *
      * @return <code>true</code> se este objeto é o mesmo que o parâmetro obj, 
      *         <code>false</code> caso contrário.
      */
@@ -76,14 +76,14 @@ public class StochasticDummyPlayer extends Player {
 
         return false;
     }
-    
+
     /**
      * Retorna a jogada do jogador para a rodada atual.
-     * 
+     *
      * @param firstToPlay Um valor booleano que indica se o jogador iniciou a 
      *                    rodada atual.
      * @param engine      O motor do jogo.
-     * 
+     *
      * @return Uma jogada.
      */
     @Override

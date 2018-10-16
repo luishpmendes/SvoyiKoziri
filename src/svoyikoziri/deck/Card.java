@@ -2,7 +2,7 @@ package svoyikoziri.deck;
 
 /**
  * A classe <code>Card</code> representa uma carta de baralho.
- * 
+ *
  * @author Luis H. P. Mendes
  */
 public class Card implements Comparable<Card> {
@@ -18,7 +18,7 @@ public class Card implements Comparable<Card> {
 
     /**
      * Inicializa um objeto de <code>Card</code> recém-criado.
-     * 
+     *
      * @param suit O naipe da carta.
      * @param rank O rank da carta.
      */
@@ -29,7 +29,7 @@ public class Card implements Comparable<Card> {
 
     /**
      * Recupera o naipe desta carta.
-     * 
+     *
      * @return O naipe desta carta.
      */
     public Suit getSuit() {
@@ -38,7 +38,7 @@ public class Card implements Comparable<Card> {
 
     /**
      * Recupera o rank desta carta.
-     * 
+     *
      * @return O rank desta carta.
      */
     public Rank getRank() {
@@ -50,9 +50,9 @@ public class Card implements Comparable<Card> {
      * Retorna um inteiro negativo, zero, ou um inteiro positivo se esta carta 
      * for, respectivamente, menor que, igual à, ou mais que a carta passada 
      * por parâmetro.
-     * 
+     *
      * @param card A carta que será comparada com esta carta.
-     * 
+     *
      * @return Um inteiro negativo, zero, ou um inteiro positivo se esta carta 
      * for, respectivamente, menor que, igual à, ou mais que a carta passada 
      * por parâmetro.
@@ -68,9 +68,9 @@ public class Card implements Comparable<Card> {
 
     /**
      * Indica se algum outro objeto é igual a este objeto.
-     * 
+     *
      * @param obj O objeto de referência com o qual comparar.
-     * 
+     *
      * @return <code>true</code> se este objeto é o mesmo que o parâmetro obj, 
      *         <code>false</code> caso contrário.
      */
@@ -94,7 +94,7 @@ public class Card implements Comparable<Card> {
 
     /**
      * Retorna uma representação em String desta carta.
-     * 
+     *
      * @return Uma representação em String desta carta.
      */
     @Override

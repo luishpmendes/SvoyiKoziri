@@ -24,7 +24,7 @@ public class InvalidPlayer extends Player {
     /**
      * A exceção desejada.
      */
-    private final Class<Exception> wantedException;
+    private final RuntimeException wantedException;
 
     /**
      * Inicializa um objeto de <code>InvalidPlayer</code> recém-criado.
@@ -32,11 +32,9 @@ public class InvalidPlayer extends Player {
      * @param trump           O naipe trunfo do jogador.
      * @param wantedException A exceção desejada.
      */
-    @SuppressWarnings("unchecked")
-    public InvalidPlayer(Suit trump, 
-            Class<? extends Exception> wantedException) {
+    public InvalidPlayer(Suit trump, RuntimeException wantedException) {
         super(trump);
-        this.wantedException = (Class<Exception>) wantedException;
+        this.wantedException = wantedException;
     }
 
     /**
@@ -83,20 +81,20 @@ public class InvalidPlayer extends Player {
      * @return Uma jogada inválida.
      */
     @SuppressWarnings("null")
-    @Override
+	@Override
     public Play playRound(boolean firstToPlay, Engine engine) {
         // Se a exceção desejada não for nula
         if (this.wantedException != null) {
             // Se a exceção desejada for NullPlayException
-            if (this.wantedException.equals(NullPlayException.class)) {
+            if (this.wantedException instanceof NullPlayException) {
                 // Retorna uma jogada nula
                 return null;
             // Se a exceção desejada for PlayANullCardException
-            } else if (this.wantedException.equals(PlayANullCardException.class)) {
+            } else if (this.wantedException instanceof PlayANullCardException) {
                 // Retorna uma jogada do tipo PLAYACARD sem uma carta
                 return new Play(PlayType.PLAYACARD);
             // Se a exceção desejada for PlayACardNotInHandException
-            } else if (this.wantedException.equals(PlayACardNotInHandException.class)) {
+            } else if (this.wantedException  instanceof PlayACardNotInHandException) {
                 List<Card> hand = engine.getUnmodifiableHandOfPlayer(this);
                 Card invalidCardToPlay = null;
                 // Procura por uma carta que não tem na mão do jogador e a joga
@@ -108,7 +106,7 @@ public class InvalidPlayer extends Player {
                         invalidCardToPlay = possibleInvalidCardToPlay;
                         break;
                     }
-    
+
                     possibleInvalidCardToPlay = new Card(Suit.TILES, 
                             card.getRank());
     
@@ -116,35 +114,35 @@ public class InvalidPlayer extends Player {
                         invalidCardToPlay = possibleInvalidCardToPlay;
                         break;
                     }
-    
+
                     possibleInvalidCardToPlay = new Card(Suit.CLOVERS, 
                             card.getRank());
-    
+
                     if (!hand.contains(possibleInvalidCardToPlay)) {
                         invalidCardToPlay = possibleInvalidCardToPlay;
                         break;
                     }
-    
+
                     possibleInvalidCardToPlay = new Card(Suit.PIKES, 
                             card.getRank());
-    
+
                     if (!hand.contains(possibleInvalidCardToPlay)) {
                         invalidCardToPlay = possibleInvalidCardToPlay;
                         break;
                     }
                 }
-    
+
                 return new Play(PlayType.PLAYACARD, invalidCardToPlay);
             // Se a exceção desejada for TakeAllCardsAsFirstPlayException
-            } else if (this.wantedException.equals(TakeAllCardsAsFirstPlayException.class)) {
+            } else if (this.wantedException instanceof TakeAllCardsAsFirstPlayException) {
                 // Retorna uma jogada do tipo TAKEALLCARDS
                 return new Play(PlayType.TAKEALLCARDS);
             // Se a exceção desejada for do tipo PlayAWorseCardException
-            } else if (this.wantedException.equals(PlayAWorseCardException.class)) {
+            } else if (this.wantedException instanceof PlayAWorseCardException) {
                 // Cartas na mão do jogador
                 List<Card> hand = engine.getUnmodifiableHandOfPlayer(this);
                 Card worseCardToPlay = null;
-    
+
                 // Se for o primeiro a jogar na rodada atual
                 if (firstToPlay) {
                     // Escolhe a primeira carta da mão
@@ -184,22 +182,23 @@ public class InvalidPlayer extends Player {
                         }
                     }
                 }
-    
+
                 return new Play(PlayType.PLAYACARD, worseCardToPlay);
             // Se a exceção desejada for do tipo MaxPlayTimeExceededException
-            } else if (this.wantedException.equals(MaxPlayTimeExceededException.class)) {
+            } else if (this.wantedException instanceof MaxPlayTimeExceededException) {
                 // "Dorme" por 2 * Engine.DEFAULT_MAX_PLAY_TIME ns
                 try {
                     Thread.sleep(2 * (Engine.DEFAULT_MAX_PLAY_TIME / 1000000));
                 } catch (InterruptedException e) {
                 }
             // Se a exceção desejada for do tipo InvalidPlayException
-            } else if (this.wantedException.equals(InvalidPlayException.class)) {
+            } else if (this.wantedException instanceof InvalidPlayException) {
                 // Lança uma NullPointerException
                 Object obj = null;
                 obj.getClass();
             }
         }
+
         return null;
     }
 }

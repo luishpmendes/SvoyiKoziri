@@ -2,17 +2,17 @@ package svoyikoziri.engine.exception;
 
 /**
  * A classe <code>InvalidPlayException</code> representa a exceção em tempo 
- * de execução que acontece quando um jogador realiza uma jogada inválida, 
- * isto é, quando um jogador lança uma exceção ao realizar sua jogada 
- * (por exemplo, ArrayIndexOutOfBoundsException ou NullPointerException).
- * 
+ * de execução que acontece quando um jogador lança uma exceção ao realizar 
+ * sua jogada (por exemplo, ArrayIndexOutOfBoundsException ou 
+ * NullPointerException).
+ *
  * @author Luis H. P. Mendes
  */
 @SuppressWarnings("serial")
 public class InvalidPlayException extends RuntimeException {
     /**
      * Inicializa um objeto de <code>InvalidPlayException</code> recém-criado.
-     * 
+     *
      * @param isPlayer1 Flag que indica se a exceção foi provocada pelo 
      *                  Jogador1 ou pelo Jogador2.
      */

@@ -17,7 +17,7 @@ import svoyikoziri.player.Player;
 /**
  * A classe abstrata <code>Engine</code> representa um motor genérico do 
  * jogo de cartas Svoyi Koziri.
- * 
+ *
  * @author Luis H. P. Mendes
  */
 public abstract class Engine {
@@ -47,11 +47,11 @@ public abstract class Engine {
     /**
      * Retorna uma mensagem que informa uma jogada válida realizada por 
      * um jogador.
-     * 
+     *
      * @param isPlayer1 Flag que indica se a jogada foi realizada pelo 
      *                  Jogador1 ou pelo Jogador2.
      * @param play      A jogada realizada.
-     * 
+     *
      * @return Uma mensagem que informa uma jogada válida realizada por 
      *         um jogador.
      */
@@ -67,11 +67,11 @@ public abstract class Engine {
 
     /**
      * Retorna uma mensagem que informa o naipe trunfo de um jogador.
-     * 
+     *
      * @param isPlayer1 Flag que indica se o jogador em questão é o Jogador1 
      *                  ou o Jogador2.
      * @param trump     Naipe trunfo do jogador.
-     * 
+     *
      * @return Uma mensagem que informa o naipe trunfo de um jogador
      */
     protected static String getPlayerTrumpMessage(boolean isPlayer1, 
@@ -83,10 +83,10 @@ public abstract class Engine {
     /**
      * Retorna uma mensagem que informa o número da rodada atual 
      * e o número máximo de rodadas da partida.
-     * 
+     *
      * @param currentRound O número da rodada atual da partida.
      * @param maxRounds    O número máximo de rodadas da partida.
-     * 
+     *
      * @return Uma mensagem que informa o número da rodada atual 
      * e o número máximo de rodadas da partida.
      */
@@ -98,11 +98,11 @@ public abstract class Engine {
     /**
      * Retorna uma mensagem que informa o número de cartas na mão de 
      * um jogador.
-     * 
+     *
      * @param isPlayer1 Flag que indica se o jogador em questão é o Jogador1 
      *                  ou o Jogador2.
      * @param handSize  O número de cartas na mão do jogador.
-     * 
+     *
      * @return Uma mensagem que informa o número de cartas na mão de 
      *         um jogador.
      */
@@ -115,9 +115,9 @@ public abstract class Engine {
     /**
      * Retorna uma mensagem que informa o número de cartas na pilha de cartas 
      * da mesa.
-     * 
+     *
      * @param cardsOnTableSize O número de cartas na pilha de cartas da mesa.
-     * 
+     *
      * @return Uma mensagem que informa o número de cartas na pilha de cartas 
      *         da mesa.
      */
@@ -133,10 +133,10 @@ public abstract class Engine {
     
     /**
      * Retorna uma mensagem que informa o jogador que começa a rodada.
-     * 
+     *
      * @param isPlayer1 Flag que indica se o jogador em questão é o Jogador1 
      *                  ou o Jogador2.
-     * 
+     *
      * @return Uma mensagem que informa o jogador que começa a rodada.
      */
     protected static String getPlayerStartsRoundMessage(boolean isPlayer1) {
@@ -146,10 +146,10 @@ public abstract class Engine {
 
     /**
      * Retorna uma mensagem que informa o jogador que ganhou a rodada.
-     * 
+     *
      * @param isPlayer1 Flag que indica se a rodada foi ganha pelo Jogador1 
      *                  ou pelo Jogador2.
-     * 
+     *
      * @return Uma mensagem que informa o jogador que ganhou a rodada.
      */
     protected static String getPlayerWinsRoundMessage(boolean isPlayer1) {
@@ -159,10 +159,10 @@ public abstract class Engine {
 
     /**
      * Retorna uma mensagem que informa o jogador vencedor da partida.
-     * 
+     *
      * @param isPlayer1 Flag que indica se o vencedor da partida foi o 
      *                  Jogador1 ou o Jogador2.
-     * 
+     *
      * @return Uma mensagem que informa o jogador vencedor da partida.
      */
     protected static String getWinnerPlayerMessage(boolean isPlayer1) {
@@ -172,51 +172,51 @@ public abstract class Engine {
 
     /**
      * Recupera o naipe trunfo do Jogador1.
-     * 
+     *
      * @return O naipe trunfo do Jogador1.
      */
     public abstract Suit getPlayer1Trump();
 
     /**
      * Recupera o naipe trunfo do Jogador2.
-     * 
+     *
      * @return O naipe trunfo do Jogador2.
      */
     public abstract Suit getPlayer2Trump();
 
     /**
      * Recupera uma cópia imutável das cartas da mão de um jogador.
-     * 
+     *
      * @param player O jogador em questão.
-     * 
+     *
      * @return Uma cópia imutável das cartas da mão do Jogador2.
      */
     public abstract List<Card> getUnmodifiableHandOfPlayer(Player player);
 
     /**
-     * Recupera uma cópia da pilha de cartas na mesa.
-     * 
-     * @return Uma cópia da pilha de cartas na mesa.
+     * Recupera uma cópia da pilha de cartas da mesa.
+     *
+     * @return Uma cópia da pilha de cartas da mesa.
      */
     public abstract Stack<Card> getCardsOnTable();
 
     /**
      * Recupera o número máximo de rodadas da partida.
-     * 
+     *
      * @return O número máximo de rodadas da partida.
      */
     public abstract int getMaxRounds();
 
     /**
      * Recupera o número da rodada atual da partida.
-     * 
+     *
      * @return O número da rodada atual da partida.
      */
     public abstract int getCurrentRound();
 
     /**
      * Recupera uma cópia imutável da lista de jogadas.
-     * 
+     *
      * @return Uma cópia imutável da lista de jogadas.
      */
     public abstract List<Play> getUnmodifiablePlays();
@@ -224,9 +224,9 @@ public abstract class Engine {
     /**
      * Joga uma partida do jogo de cartas Svoyi Koziri.
      * Retorna o jogador vencedor, ou null em caso de empate.
-     * 
+     *
      * @return O jogador vencedor, ou null em caso de empate.
-     * 
+     *
      * @throws NullPlayException                Lança uma <code>NullPlayException</code> caso um 
      *                                          jogador realize uma jogada nula.
      * @throws PlayANullCardException           Lança uma <code>PlayANullCardException</code> 
@@ -259,7 +259,7 @@ public abstract class Engine {
     /**
      * Caso a flag de verbosidade esteja ativa, imprime um objeto na saída 
      * padrão.
-     * 
+     *
      * @param obj Objeto a ser impresso.
      */
     protected abstract void println(Object obj);

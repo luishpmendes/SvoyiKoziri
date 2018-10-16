@@ -23,7 +23,7 @@ import svoyikoziri.player.Player;
 /**
  * A classe <code>DefaultEngine</code> representa um motor padrão do jogo de 
  * cartas Svoyi Koziri.
- * 
+ *
  * @author Luis H. P. Mendes
  */
 public class DefaultEngine extends Engine {
@@ -48,7 +48,7 @@ public class DefaultEngine extends Engine {
     private List<Card> hand2;
 
     /**
-     * As cartas que estão na mesa.
+     * A pilha de cartas da mesa.
      */
     private Stack<Card> cardsOnTable;
 
@@ -79,7 +79,7 @@ public class DefaultEngine extends Engine {
 
     /**
      * Inicializa um objeto de <code>DefaultEngine</code> recém-criado.
-     * 
+     *
      * @param player1     O Jogador1.
      * @param player2     O Jogador2.
      * @param minRank     O menor rank a ser considerado no baralho, ou seja, 
@@ -112,7 +112,7 @@ public class DefaultEngine extends Engine {
 
     /**
      * Inicializa um objeto de <code>DefaultEngine</code> recém-criado.
-     * 
+     *
      * @param player1     O Jogador1.
      * @param player2     O Jogador2.
      * @param deck        O baralho a ser utilizado na partida, já embaralhado.
@@ -143,7 +143,7 @@ public class DefaultEngine extends Engine {
 
     /**
      * Cria um baralho do jogo Svoyi Koziri com os ranks passados por parâmetro.
-     * 
+     *
      * @param minRank O menor rank a ser considerado no baralho, ou seja, 
      *                o intervalo de ranks será [minRank, ACE].
      * 
@@ -170,7 +170,7 @@ public class DefaultEngine extends Engine {
     /**
      * Processa a fase de inicialização de uma partida do jogo de cartas 
      * Svoyi Koziri.
-     * 
+     *
      * @param deck O baralho utilizado na partida.
      */
     private void initialize(List<Card> deck) {
@@ -244,7 +244,7 @@ public class DefaultEngine extends Engine {
     /**
      * Processa a fase de inicialização de uma partida do jogo de cartas 
      * Svoyi Koziri.
-     * 
+     *
      * @param deck O baralho utilizado na partida.
      * @param rnd O gerador de números aleatórios.
      */
@@ -257,7 +257,7 @@ public class DefaultEngine extends Engine {
 
     /**
      * Recupera uma cópia imutável das cartas da mão do Jogador1.
-     * 
+     *
      * @return Uma cópia imutável das cartas da mão do Jogador1.
      */
     private List<Card> getUnmodifiableHand1() {
@@ -266,7 +266,7 @@ public class DefaultEngine extends Engine {
 
     /**
      * Recupera uma cópia imutável das cartas da mão do Jogador2.
-     * 
+     *
      * @return Uma cópia imutável das cartas da mão do Jogador2.
      */
     private List<Card> getUnmodifiableHand2() {
@@ -275,9 +275,9 @@ public class DefaultEngine extends Engine {
 
     /**
      * Recupera a lista de cartas de um jogador.
-     * 
+     *
      * @param player O jogador em questão.
-     * 
+     *
      * @return A lista de cartas de um jogador.
      */
     private List<Card> getHandOfPlayer(Player player) {
@@ -293,12 +293,12 @@ public class DefaultEngine extends Engine {
     /**
      * Processa uma jogada de um jogador e, caso seja o último turno da rodada, 
      * retorna true se o jogador vencer e false caso contrário.
-     * 
+     *
      * @param player    O jogador que fez a jogada
      * @param play      A jogada feita pelo jogador
      * @param firstPlay Um valor booleano que indica se a jogada é a primeira 
      *                  da rodada atual.
-     * 
+     *
      * @return Caso seja o último turno da rodada, 
      *         retorna true se o jogador vencer e false caso contrário
      */
@@ -332,7 +332,7 @@ public class DefaultEngine extends Engine {
                             this.println(Engine.getValidPlayMessage(
                                     player.equals(this.player1), play));
                             // Adiciona a carta ao topo da pilha de cartas 
-                            // que está na mesa
+                            // da mesa
                             this.cardsOnTable.push(play.getCard());
                         } else { // Senão
                             // O jogador não possuia a carta que jogou
@@ -359,7 +359,7 @@ public class DefaultEngine extends Engine {
                                 player.equals(this.player1));
                     } else { // Senão
                         // A carta jogada não é nula
-                        // Se a pilha de cartas que está na mesa está vazia
+                        // Se a pilha de cartas da mesa está vazia
                         if (this.cardsOnTable.isEmpty() 
                                 // ou a carta jogada é do mesmo naipe que a 
                                 // carta no topo da pilha de cartas da mesa
@@ -383,7 +383,7 @@ public class DefaultEngine extends Engine {
                                 this.println(Engine.getValidPlayMessage(
                                         player.equals(this.player1), play));
                                 // Adiciona a carta ao topo da pilha de cartas 
-                                // que está na mesa
+                                // da mesa
                                 this.cardsOnTable.push(play.getCard());
                                 // E retorna true
                                 result = true;
@@ -408,8 +408,7 @@ public class DefaultEngine extends Engine {
                     // Imprime a jogada
                     this.println(Engine.getValidPlayMessage(
                             player.equals(this.player1), play));
-                    // Enquanto a pilha de cartas que está na mesa não 
-                    // estiver vazia
+                    // Enquanto a pilha de cartas da mesa não estiver vazia
                     while (!this.cardsOnTable.empty()) {
                         // Remove uma carta do topo da pilha e a adiciona à 
                         // mão do jogador
@@ -429,7 +428,7 @@ public class DefaultEngine extends Engine {
     /**
      * Caso a flag de verbosidade esteja ativa, imprime um objeto na saída 
      * padrão.
-     * 
+     *
      * @param obj Objeto a ser impresso.
      */
     @Override
@@ -441,7 +440,7 @@ public class DefaultEngine extends Engine {
 
     /**
      * Recupera o naipe trunfo do Jogador1.
-     * 
+     *
      * @return O naipe trunfo do Jogador1.
      */
     @Override
@@ -451,7 +450,7 @@ public class DefaultEngine extends Engine {
 
     /**
      * Recupera o naipe trunfo do Jogador2.
-     * 
+     *
      * @return O naipe trunfo do Jogador2.
      */
     @Override
@@ -461,7 +460,7 @@ public class DefaultEngine extends Engine {
 
     /**
      * Recupera uma cópia imutável das cartas de um jogador.
-     * 
+     *
      * @return Uma cópia imutável das cartas da mão do Jogador2.
      */
     @Override
@@ -476,9 +475,9 @@ public class DefaultEngine extends Engine {
     }
 
     /**
-     * Recupera uma cópia da pilha de cartas na mesa.
-     * 
-     * @return Uma cópia da pilha de cartas na mesa.
+     * Recupera uma cópia da pilha de cartas da mesa.
+     *
+     * @return Uma cópia da pilha de cartas da mesa.
      */
     @SuppressWarnings("unchecked")
     @Override
@@ -488,7 +487,7 @@ public class DefaultEngine extends Engine {
 
     /**
      * Recupera uma cópia imutável da lista de jogadas.
-     * 
+     *
      * @return Uma cópia imutável da lista de jogadas.
      */
     @Override
@@ -498,7 +497,7 @@ public class DefaultEngine extends Engine {
 
     /**
      * Recupera o número máximo de rodadas do jogo.
-     * 
+     *
      * @return O número máximo de rodadas do jogo.
      */
     @Override
@@ -508,7 +507,7 @@ public class DefaultEngine extends Engine {
 
     /**
      * Recupera o número da rodada atual do jogo.
-     * 
+     *
      * @return O número da rodada atual do jogo.
      */
     @Override
@@ -519,9 +518,9 @@ public class DefaultEngine extends Engine {
     /**
      * Joga uma partida do jogo de cartas Svoyi Koziri.
      * Retorna o jogador vencedor, ou null em caso de empate.
-     * 
+     *
      * @return O jogador vencedor, ou null em caso de empate.
-     * 
+     *
      * @throws NullPlayException                Lança uma <code>NullPlayException</code> caso um 
      *                                          jogador realize uma jogada nula.
      * @throws PlayANullCardException           Lança uma <code>PlayANullCardException</code> 

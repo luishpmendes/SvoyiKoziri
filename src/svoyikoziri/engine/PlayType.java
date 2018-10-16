@@ -3,7 +3,7 @@ package svoyikoziri.engine;
 /**
  * A enumeração <code>PlayType</code> representa os tipos de jogadas do jogo 
  * de cartas Svoyi Koziri.
- * 
+ *
  * @author Luis H. P. Mendes
  */
 public enum PlayType {
