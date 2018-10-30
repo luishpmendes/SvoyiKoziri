@@ -82,7 +82,7 @@ public class Main {
                     Engine.DEFAULT_MAX_ROUNDS, Engine.DEFAULT_MAX_PLAY_TIME, 
                     false);
         } catch (SameTrumpColorsException stce) {
-            System.err.println(stce.getMessage());
+            System.out.println(stce.getMessage());
         }
 
         // Tenta jogar uma partida com um jogador que faz jogadas nulas
@@ -96,7 +96,7 @@ public class Main {
             
             engine.playMatch();
         } catch (NullPlayException npe) {
-            System.err.println(npe.getMessage());
+            System.out.println(npe.getMessage());
         }
 
         // Tenta jogar uma partida com um jogador que joga cartas nulas
@@ -111,7 +111,7 @@ public class Main {
             
             engine.playMatch();
         } catch (PlayANullCardException pance) {
-            System.err.println(pance.getMessage());
+            System.out.println(pance.getMessage());
         }
 
         // Tenta jogar uma partida com um jogador que joga cartas que não 
@@ -127,7 +127,7 @@ public class Main {
             
             engine.playMatch();
         } catch (PlayACardNotInHandException pacnihe) {
-            System.err.println(pacnihe.getMessage());
+            System.out.println(pacnihe.getMessage());
         }
 
         // Tenta jogar uma partida com um jogador que tenta pegar todas as 
@@ -143,7 +143,7 @@ public class Main {
             
             engine.playMatch();
         } catch (TakeAllCardsAsFirstPlayException tacafpe) {
-            System.err.println(tacafpe.getMessage());
+            System.out.println(tacafpe.getMessage());
         }
 
         // Tenta jogar uma partida com um jogador que jogar uma carta que é 
@@ -159,7 +159,7 @@ public class Main {
             
             engine.playMatch();
         } catch (PlayAWorseCardException pawce) {
-            System.err.println(pawce.getMessage());
+            System.out.println(pawce.getMessage());
         }
 
         // Tenta jogar uma partida com um jogador que lança exceção ao tentar 
@@ -175,7 +175,7 @@ public class Main {
             
             engine.playMatch();
         } catch (InvalidPlayException ipe) {
-            System.err.println(ipe.getMessage());
+            System.out.println(ipe.getMessage());
         }
 
         // Tenta jogar uma partida com um jogador que demora mais do que o 
@@ -191,7 +191,7 @@ public class Main {
             
             engine.playMatch();
         } catch (MaxPlayTimeExceededException mptee) {
-            System.err.println(mptee.getMessage());
+            System.out.println(mptee.getMessage());
         }
 
         // Joga uma partida entre dois jogadores "ingênuos" determinísticos
@@ -214,7 +214,7 @@ public class Main {
                 engine.getUnmodifiableHandOfPlayer(player1).add(
                         new Card(Suit.HEARTS, Rank.TWO));
             } catch (UnsupportedOperationException upe) {
-                System.err.println("Nao foi possivel modificar as cartas na mao do Jogador1.");
+                System.out.println("Nao foi possivel modificar as cartas na mao do Jogador1.");
             }
         } else {
             System.out.println("Cartas na mao do Jogador1:");
@@ -224,7 +224,7 @@ public class Main {
             try {
                 engine.getUnmodifiableHandOfPlayer(player1).clear();
             } catch (UnsupportedOperationException upe) {
-                System.err.println("Nao foi possivel modificar as cartas na mao do Jogador1.");
+                System.out.println("Nao foi possivel modificar as cartas na mao do Jogador1.");
             }
         }
         if (engine.getUnmodifiableHandOfPlayer(player2).isEmpty()) {
@@ -233,7 +233,7 @@ public class Main {
                 engine.getUnmodifiableHandOfPlayer(player2).add(
                         new Card(Suit.HEARTS, Rank.TWO));
             } catch (UnsupportedOperationException upe) {
-                System.err.println("Nao foi possivel modificar as cartas na mao do Jogador2.");
+                System.out.println("Nao foi possivel modificar as cartas na mao do Jogador2.");
             }
         } else {
             System.out.println("Cartas na mao do Jogador2:");
@@ -243,7 +243,7 @@ public class Main {
             try {
                 engine.getUnmodifiableHandOfPlayer(player2).clear();
             } catch (UnsupportedOperationException upe) {
-                System.err.println("Nao foi possivel modificar as cartas na mao do Jogador2.");
+                System.out.println("Nao foi possivel modificar as cartas na mao do Jogador2.");
             }
         }
         if (engine.getCardsOnTable().isEmpty()) {
@@ -265,7 +265,7 @@ public class Main {
         try {
             engine.getUnmodifiablePlays().clear();
         } catch (UnsupportedOperationException upe) {
-            System.err.println("Nao foi possivel modificar a lista de jogadas.");
+            System.out.println("Nao foi possivel modificar a lista de jogadas.");
         }
 
         // Joga uma partida entre dois jogadores "ingênuos" determinísticos
@@ -288,7 +288,7 @@ public class Main {
                 engine.getUnmodifiableHandOfPlayer(player1).add(
                         new Card(Suit.HEARTS, Rank.TWO));
             } catch (UnsupportedOperationException upe) {
-                System.err.println("Nao foi possivel modificar as cartas na mao do Jogador1.");
+                System.out.println("Nao foi possivel modificar as cartas na mao do Jogador1.");
             }
         } else {
             System.out.println("Cartas na mao do Jogador1:");
@@ -298,7 +298,7 @@ public class Main {
             try {
                 engine.getUnmodifiableHandOfPlayer(player1).clear();
             } catch (UnsupportedOperationException upe) {
-                System.err.println("Nao foi possivel modificar as cartas na mao do Jogador1.");
+                System.out.println("Nao foi possivel modificar as cartas na mao do Jogador1.");
             }
         }
         if (engine.getUnmodifiableHandOfPlayer(player2).isEmpty()) {
@@ -307,7 +307,7 @@ public class Main {
                 engine.getUnmodifiableHandOfPlayer(player2).add(
                         new Card(Suit.HEARTS, Rank.TWO));
             } catch (UnsupportedOperationException upe) {
-                System.err.println("Nao foi possivel modificar as cartas na mao do Jogador2.");
+                System.out.println("Nao foi possivel modificar as cartas na mao do Jogador2.");
             }
         } else {
             System.out.println("Cartas na mao do Jogador2:");
@@ -317,7 +317,7 @@ public class Main {
             try {
                 engine.getUnmodifiableHandOfPlayer(player2).clear();
             } catch (UnsupportedOperationException upe) {
-                System.err.println("Nao foi possivel modificar as cartas na mao do Jogador2.");
+                System.out.println("Nao foi possivel modificar as cartas na mao do Jogador2.");
             }
         }
         if (engine.getCardsOnTable().isEmpty()) {
@@ -339,7 +339,7 @@ public class Main {
         try {
             engine.getUnmodifiablePlays().clear();
         } catch (UnsupportedOperationException upe) {
-            System.err.println("Nao foi possivel modificar a lista de jogadas.");
+            System.out.println("Nao foi possivel modificar a lista de jogadas.");
         }
     }
 }

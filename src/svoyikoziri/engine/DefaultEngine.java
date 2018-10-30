@@ -571,17 +571,21 @@ public class DefaultEngine extends Engine {
             this.println(Engine.getRoundNumberMessage(this.currentRound, 
                     this.maxRounds));
 
-            // Imprime as cartas na mão do Jogador1
+            // Imprime as cartas na mão do Jogador1 em ordem
+            List<Card> sortedHand1 = new ArrayList<Card>(this.hand1);
+            Collections.sort(sortedHand1);
             this.println(Engine.getNumberOfCardsOnPlayersHandMessage(true, 
-                    this.hand1.size()));
-            for (Card card : this.hand1) {
+                    sortedHand1.size()));
+            for (Card card : sortedHand1) {
                 this.println(card);
             }
 
-            // Imprime as cartas na mão do Jogador2
+            // Imprime as cartas na mão do Jogador2 em ordem
+            List<Card> sortedHand2 = new ArrayList<Card>(this.hand2);
+            Collections.sort(sortedHand2);
             this.println(Engine.getNumberOfCardsOnPlayersHandMessage(false, 
-                    this.hand2.size()));
-            for (Card card : this.hand2) {
+                    sortedHand2.size()));
+            for (Card card : sortedHand2) {
                 this.println(card);
             }
 
