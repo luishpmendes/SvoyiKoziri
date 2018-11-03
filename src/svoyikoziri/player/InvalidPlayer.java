@@ -1,6 +1,7 @@
 package svoyikoziri.player;
 
 import java.util.List;
+import java.util.TreeSet;
 
 import svoyikoziri.deck.Card;
 import svoyikoziri.deck.Suit;
@@ -95,7 +96,7 @@ public class InvalidPlayer extends Player {
                 return new Play(PlayType.PLAYACARD);
             // Se a exceção desejada for PlayACardNotInHandException
             } else if (this.wantedException  instanceof PlayACardNotInHandException) {
-                List<Card> hand = engine.getUnmodifiableHandOfPlayer(this);
+                TreeSet<Card> hand = new TreeSet<Card>(engine.getUnmodifiableHandOfPlayer(this));
                 Card invalidCardToPlay = null;
                 // Procura por uma carta que não tem na mão do jogador e a joga
                 for (Card card : hand) {

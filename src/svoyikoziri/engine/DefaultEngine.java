@@ -459,9 +459,11 @@ public class DefaultEngine extends Engine {
     }
 
     /**
-     * Recupera uma cópia imutável das cartas de um jogador.
+     * Recupera uma cópia imutável das cartas da mão de um jogador.
      *
-     * @return Uma cópia imutável das cartas da mão do Jogador2.
+     * @param player O jogador em questão.
+     *
+     * @return Uma cópia imutável das cartas da mão de um jogador.
      */
     @Override
     public List<Card> getUnmodifiableHandOfPlayer(Player player) {

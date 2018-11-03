@@ -189,7 +189,7 @@ public abstract class Engine {
      *
      * @param player O jogador em questão.
      *
-     * @return Uma cópia imutável das cartas da mão do Jogador2.
+     * @return Uma cópia imutável das cartas da mão de um jogador.
      */
     public abstract List<Card> getUnmodifiableHandOfPlayer(Player player);
 
