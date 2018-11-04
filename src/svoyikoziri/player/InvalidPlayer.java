@@ -1,6 +1,5 @@
 package svoyikoziri.player;
 
-import java.util.List;
 import java.util.TreeSet;
 
 import svoyikoziri.deck.Card;
@@ -141,13 +140,13 @@ public class InvalidPlayer extends Player {
             // Se a exceção desejada for do tipo PlayAWorseCardException
             } else if (this.wantedException instanceof PlayAWorseCardException) {
                 // Cartas na mão do jogador
-                List<Card> hand = engine.getUnmodifiableHandOfPlayer(this);
+                TreeSet<Card> hand = new TreeSet<Card>(engine.getUnmodifiableHandOfPlayer(this));
                 Card worseCardToPlay = null;
 
                 // Se for o primeiro a jogar na rodada atual
                 if (firstToPlay) {
                     // Escolhe a primeira carta da mão
-                    worseCardToPlay = hand.get(0);
+                    worseCardToPlay = hand.first();
                 } else { // Senão
                     // É o segundo a jogar na rodada atual
                     // Para cada carta na mão
@@ -155,7 +154,7 @@ public class InvalidPlayer extends Player {
                         // Se a pilha de cartas da mesa estiver vazia 
                         if (engine.getCardsOnTable().isEmpty()) {
                             // Escolhe a primeira carta da mão
-                            worseCardToPlay = hand.get(0);
+                            worseCardToPlay = hand.first();
                         } else { // Senão
                             // A pilha de cartas da mesa não está vazia
                             // Se a carta for do mesmo naipe que a carta no 
