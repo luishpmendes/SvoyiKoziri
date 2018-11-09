@@ -2,6 +2,7 @@ package svoyikoziri.driver;
 
 import java.util.Arrays;
 import java.util.List;
+import java.util.TreeSet;
 
 import svoyikoziri.deck.Card;
 import svoyikoziri.deck.Rank;
@@ -218,7 +219,9 @@ public class Main {
             }
         } else {
             System.out.println("Cartas na mao do Jogador1:");
-            for (Card card : engine.getUnmodifiableHandOfPlayer(player1)) {
+            TreeSet<Card> sortedHand1 = 
+                    new TreeSet<Card>(engine.getUnmodifiableHandOfPlayer(player1));
+            for (Card card : sortedHand1) {
                 System.out.println(card);
             }
             try {
@@ -237,7 +240,9 @@ public class Main {
             }
         } else {
             System.out.println("Cartas na mao do Jogador2:");
-            for (Card card : engine.getUnmodifiableHandOfPlayer(player2)) {
+            TreeSet<Card> sortedHand2 = 
+                    new TreeSet<Card>(engine.getUnmodifiableHandOfPlayer(player2));
+            for (Card card : sortedHand2) {
                 System.out.println(card);
             }
             try {
@@ -292,7 +297,9 @@ public class Main {
             }
         } else {
             System.out.println("Cartas na mao do Jogador1:");
-            for (Card card : engine.getUnmodifiableHandOfPlayer(player1)) {
+            TreeSet<Card> sortedHand1 = 
+                    new TreeSet<Card>(engine.getUnmodifiableHandOfPlayer(player1));
+            for (Card card : sortedHand1) {
                 System.out.println(card);
             }
             try {
@@ -311,7 +318,9 @@ public class Main {
             }
         } else {
             System.out.println("Cartas na mao do Jogador2:");
-            for (Card card : engine.getUnmodifiableHandOfPlayer(player2)) {
+            TreeSet<Card> sortedHand2 = 
+                    new TreeSet<Card>(engine.getUnmodifiableHandOfPlayer(player2));
+            for (Card card : sortedHand2) {
                 System.out.println(card);
             }
             try {
